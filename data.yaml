@@ -1,0 +1,19 @@
+train: /home/ark/Documentos/YOLO/dataset_4/train/images
+val: /home/ark/Documentos/YOLO/dataset_4/valid/images
+
+
+nc: 23
+names: ['arma', 'boton_elevador', 'boton_puerta', 'caos', 'cientifico', 'clase_d', 'guardia', 'interactuable', 'lector_tarjeta', 'medicina', 'muerto', 'municion', 'ntf', 'puerta_abierta', 'puerta_cerrada', 'scp_camara', 'scp_llorona', 'scp_negro', 'scp_penaut', 'scp_perro', 'scp_plaga', 'scp_zombie', 'tarjeta']
+
+degrees: 5.0  # rotación
+translate: 0.1  # traslación
+scale: 0.2 # escalado
+shear: 0.2  # cizalladura
+perspective: 0.5 
+blur: 0.2
+motion_blur: 0.3
+noise: 0.3
+grayscale: 0.2
+
+
+# Augmentaciones más agresivas para dataset pequeño
