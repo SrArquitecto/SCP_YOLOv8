@@ -93,25 +93,25 @@ class YOLOWeightedDataset(YOLODataset):
 build.YOLODataset = YOLOWeightedDataset
 
 
-model = YOLO("yolo11n")
-model.train(data="/home/ark/Documentos/YOLO/dataset_5/data.yaml", 
+model = YOLO("./runs/detect/train11/weights/best.pt")
+model.train(data="/home/ark/Documentos/YOLO/dataset_13/data.yaml", 
     amp=True, 
-    lr0=0.001, lrf=0.01, 
-    warmup_epochs=3.0, momentum=0.937, 
+    lr0=0.000001, lrf=0.01,
+    #freeze=11,
+    warmup_epochs=3.0, warmup_momentum=0.8, momentum=0.937, 
     weight_decay=0.0005 , #dropout=0.3,
-    workers = 12,#, box=1.5, cls=1.5, dfl=7.5,
-    #freeze=9,
+    workers = 8,#, box=1.5, cls=1.5, dfl=7.5,
     warmup_bias_lr=0.1,
     epochs=200,  # Número de épocas
-    batch=160, #48
+    batch=16, #48
     device="cuda:0",
-    optimizer='auto',
+    optimizer='adamW',
     patience=25,
     save=True,                 # Activar guardado de checkpoints
     save_period=5, 
     resume=False,
-    imgsz=320,
+    imgsz=640,
     augment=True,
-    mixup=0.0,
+    mixup=0.2,
     mosaic=0.5
 )
